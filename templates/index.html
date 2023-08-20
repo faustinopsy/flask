@@ -1,10 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meu Aplicativo Flask</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Análise de Sentimento</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>{{ mensagem }}</h1>
+    <div class="bg-image"></div>
+    <div class="card animated-border">
+    <p class="font-effect-fire">Análise de Sentimento do texto</p>
+    <form action="/analyze" method="POST">
+        <div id="sentiment-face" class="emoji"></div>
+        <textarea name="text" rows="4" cols="50" placeholder="Digite o texto"></textarea><br><br>
+        <button type="submit" value="Analisar" >Analisar</button>
+    </form>
+</div>
+    <script>
+        $(document).ready(function() {
+            $("form").submit(function(event) {
+                event.preventDefault();
+        
+                var formData = $(this).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/analyze",
+                    data: formData,
+                    success: function(response) {
+                        var sentiment = response.sentiment;
+                        var face = "";
+                        console.log(sentiment)
+                        if (sentiment === "Positivo") {
+                            face = "😊";
+                        } else if (sentiment === "Negativo") {
+                            face = "☹️";
+                        } else {
+                            face = "😐";
+                        }
+        
+                        $("#sentiment-face").html(face);
+                    }
+                });
+            });
+        });
+        
+    </script>
 </body>
 </html>

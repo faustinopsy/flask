@@ -1,0 +1,128 @@
+body {
+    font-family: "Sofia", sans-serif;
+    font-size: 20px;
+    text-shadow: 3px 3px 5px  #FFF, 0.01em -0.02em 0.15em #FE0, 0.01em -0.05em 0.15em #FC0, 0.02em -0.15em 0.2em #F90, 0.04em -0.2em 0.3em #F70, 0.05em -0.25em 0.4em #F70, 0.06em -0.2em 0.9em #F50, 0.1em -0.1em 1em #F40;
+    background-image: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-image {
+    background-image: url("back.jpg");
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+.card {
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ 
+    flex-direction: column;
+    align-items: center;
+}
+
+button, a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(238, 18, 250, 0.684);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+button:hover{
+    background-color: rgba(19, 241, 31, 0.844);
+}
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px; /* Ajuste a largura conforme necessário */
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espaço entre os elementos dentro do cartão */
+}
+
+textarea {
+    width: 95%; /* Ocupa toda a largura do cartão */
+    height: 150px; /* Ajuste a altura conforme necessário */
+    resize: none; /* Evita que o usuário redimensione a área de texto */
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #0000009e;
+    color: white;
+}
+
+div {
+    display: flex; /* Coloca os elementos lado a lado */
+    gap: 10px; /* Espaço entre o input e o botão */
+    width: 100%; /* Ocupa toda a largura do cartão */
+}
+
+input {
+    flex: 1; /* Ocupa todo o espaço disponível */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+}
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.emoji {
+    font-size: 48px; /* Ajuste para o tamanho que você desejar */
+}
+@keyframes borderAnimation {
+    0% {
+        border-color: transparent transparent transparent #ffc800;
+    }
+    25% {
+        border-color: #ffc800dd transparent  transparent transparent;
+    }
+    50% {
+        border-color:  transparent #1aff00 transparent transparent;
+    }
+    75% {
+        border-color: transparent transparent #00ff15 transparent;
+    }
+    100% {
+        border-color: transparent transparent transparent #00ff2f;
+    }
+}
+
+.animated-border {
+    display: flex; /* Coloca os elementos lado a lado */
+    gap: 10px; /* Espaço entre o input e o botão */
+    border: 5px solid #ff4500;
+    position: relative;
+    animation: borderAnimation 8s linear infinite;
+}
