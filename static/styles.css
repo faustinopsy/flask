@@ -53,19 +53,29 @@ button:hover{
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 20px;
-    width: 400px; /* Ajuste a largura conforme necessário */
+    width: 400px; 
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Espaço entre os elementos dentro do cartão */
+}
+
+.emoji-bg {
+    position: absolute;
+    font-size: 72px;
+    opacity: 0.3;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
 
 textarea {
-    width: 95%; /* Ocupa toda a largura do cartão */
-    height: 150px; /* Ajuste a altura conforme necessário */
-    resize: none; /* Evita que o usuário redimensione a área de texto */
+    position: relative;
+    width: 95%; 
+    height: 150px; 
+    resize: none; 
     border-radius: 5px;
     padding: 10px;
     background-color: #0000009e;
@@ -73,13 +83,13 @@ textarea {
 }
 
 div {
-    display: flex; /* Coloca os elementos lado a lado */
-    gap: 10px; /* Espaço entre o input e o botão */
-    width: 100%; /* Ocupa toda a largura do cartão */
+    display: flex; 
+    gap: 10px; 
+    width: 100%; 
 }
 
 input {
-    flex: 1; /* Ocupa todo o espaço disponível */
+    flex: 1; 
     padding: 10px;
     border-radius: 5px;
 }
@@ -99,7 +109,8 @@ a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 .emoji {
-    font-size: 48px; /* Ajuste para o tamanho que você desejar */
+    font-size: 48px; 
+    margin-left: 40%;
 }
 @keyframes borderAnimation {
     0% {

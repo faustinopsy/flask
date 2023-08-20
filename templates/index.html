@@ -12,6 +12,7 @@
     <p class="font-effect-fire">Análise de Sentimento do texto</p>
     <form action="/analyze" method="POST">
         <div id="sentiment-face" class="emoji"></div>
+        <div class="emoji-bg"></div>
         <textarea name="text" rows="4" cols="50" placeholder="Digite o texto"></textarea><br><br>
         <button type="submit" value="Analisar" >Analisar</button>
     </form>
@@ -37,6 +38,10 @@
                         } else {
                             face = "😐";
                         }
+        
+                        $(".emoji-bg").remove();
+                        var emojiBg = $("<div class='emoji-bg'>" + face + "</div>");
+                        $("textarea").css("position", "relative").append(emojiBg);
         
                         $("#sentiment-face").html(face);
                     }
