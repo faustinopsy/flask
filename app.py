@@ -14,13 +14,15 @@ def home():
 @app.route('/analyze', methods=['POST'])
 def analyze():
     text = request.form['text']
+    if text=="":
+        return jsonify(sentiment="Neutro")
+    else:
+        text_vectorized = vectorizer.transform([text])
+        prediction = model.predict(text_vectorized)
+        
+        sentiment = "Positivo" if prediction[0] == "pos" else "Negativo" if prediction[0] == "neg" else "Neutro"
 
-    text_vectorized = vectorizer.transform([text])
-    prediction = model.predict(text_vectorized)
-    
-    sentiment = "Positivo" if prediction[0] == "pos" else "Negativo" if prediction[0] == "neg" else "Neutro"
-
-    return jsonify(sentiment=sentiment)
+        return jsonify(sentiment=sentiment)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
